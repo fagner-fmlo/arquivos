@@ -1,0 +1,10 @@
+/usr/local/apache/logs/access_log
+{
+    weekly
+    rotate 24
+    compress
+    sharedscripts
+    postrotate
+        /bin/kill -HUP `cat /usr/local/apache/logs/httpd.pid 2>/dev/null` 2> /dev/null || true
+    endscript
+}

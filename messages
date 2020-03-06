@@ -1,0 +1,10 @@
+/var/log/messages
+{
+    weekly
+    rotate 24
+    compress
+    sharedscripts
+    postrotate
+        /bin/kill -HUP `cat /var/run/syslogd.pid 2> /dev/null` 2> /dev/null || true
+    endscript
+}
