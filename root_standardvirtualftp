@@ -27,4 +27,4 @@ mail IN CNAME %domain%.
 www IN CNAME %domain%.
 ftp IN A %ftpip%
 ftp IN AAAA %ipv6%
-%domain%. IN TXT "v=spf1 +a +mx +ip4:184.171.250.82 +ip4:184.171.250.83 +ip4:184.171.250.84 +ip4:184.171.250.85 ~all"
+%domain%. IN TXT "v=spf1 +a +mx +ip4:138.128.175.50 +ip4:138.128.175.51 +ip4:138.128.175.52 +ip4:138.128.175.53 ~all"
