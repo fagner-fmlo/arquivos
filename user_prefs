@@ -1,0 +1,167 @@
+# SACONFIGSTART
+# Make sure we get the required score header.
+rewrite_header subject [SPAM] (_SCORE_)
+# SACONFIGEND
+
+# SA RULES GO HERE
+add_header all Score _SCORE_
+bayes_auto_learn 1
+bayes_auto_learn_threshold_nonspam -0.1
+bayes_auto_learn_threshold_spam 6.0
+bayes_min_ham_num 200
+bayes_min_spam_num 200
+ok_languages en
+ok_locales en
+report_safe 2
+required_score 4
+score AWL 0.00
+score BAYES_00  0  0 -1.5   -1.9
+score BAYES_05  0  0 -0.3   -0.5
+score BAYES_20  0  0 -0.001 -0.001
+score BAYES_40  0  0 -0.001 -0.001
+score BAYES_50 0.4
+score BAYES_60  0  0  2.5    1.5
+score BAYES_80  0  0  2.7    2.0
+score BAYES_95  0  0  3.2    3.0
+score BAYES_99  0  0  3.8    3.5
+score BAYES_999 0  0  0.2    0.2
+score RAZOR2_CHECK 10.5
+score RAZOR2_CHECK 0 1.729 0 0.922 # n=0 n=2
+score RAZOR2_CF_RANGE_51_100 0 2.430 0 1.886 # n=0 n=2
+score PYZOR_CHECK 12
+score PYZOR_CHECK 0 1.985 0 1.392 # n=0 n=2
+score DCC_CHECK 8.0
+score DCC_REPUT_13_19 0 -0.1 0 -0.1
+score DCC_CHECK        0  1.1   0  1.1
+score DCC_REPUT_00_12  0 -0.8   0 -0.4
+score DCC_REPUT_13_19  0 -0.1   0 -0.1
+score DCC_REPUT_70_89  0  0.1   0  0.1
+score DCC_REPUT_90_94  0  0.4   0  0.6
+score DCC_REPUT_95_98  0  0.7   0  1.0
+score DCC_REPUT_99_100 0  1.2   0  1.4
+score DKIMDOMAIN_IN_DWL 0 -3.5 0 -3.5
+score DKIMDOMAIN_IN_DWL_UNKNOWN 0 -0.01 0 -0.01
+score DKIM_VALID -0.1
+score DKIM_VALID_AU -0.1
+score SPF_NONE 0.001
+score SPF_HELO_NONE 0.001
+score SPF_PASS -0.001
+score SPF_FAIL 0 0.919 0 0.001 # n=0 n=2
+score SPF_HELO_FAIL 0 0.001 0 0.001 # n=0 n=2
+score SPF_HELO_NEUTRAL 0 0.001 0 0.112 # n=0 n=2
+score SPF_NEUTRAL 0 0.652 0 0.779 # n=0 n=2
+score SPF_SOFTFAIL 0 0.972 0 0.665 # n=0 n=2
+score SPF_HELO_SOFTFAIL 0 1.002 0 3.140
+score DNS_FROM_AHBL_RHSBL 4.7
+score DNS_FROM_RFC_BOGUSMX 3.7
+score NO_DNS_FOR_FROM 2.7
+score RCVD_IN_BL_SPAMCOP_NET 4.7
+score RCVD_IN_BL_SPAMCOP_NET 4.7
+score RCVD_IN_DNSWL_HI 0 -5 0 -5
+score RCVD_IN_DNSWL_LOW -1.0
+score RCVD_IN_DNSWL_LOW 0 -0.7 0 -0.7
+score RCVD_IN_DNSWL_MED 0 -2.3 0 -2.3
+score RCVD_IN_DNSWL_NONE 0 -0.0001 0 -0.0001
+score RCVD_IN_IADB_DK 0 -0.223 0 -0.095 # n=0 n=1 n=2
+score RCVD_IN_IADB_DOPTIN 0 -4 0 -4
+score RCVD_IN_IADB_DOPTIN_LT50 0 -0.001 0 -0.001 # n=0 n=1 n=2
+score RCVD_IN_IADB_LISTED 0 -0.380 0 -0.001 # n=0 n=2
+score RCVD_IN_IADB_MI_CPR_MAT 0 -0.332 0 -0.000 # n=0 n=1 n=2
+score RCVD_IN_IADB_ML_DOPTIN 0 -6 0 -6
+score RCVD_IN_IADB_OPTIN 0 -2.057 0 -1.470 # n=0 n=1 n=2
+score RCVD_IN_IADB_OPTIN_GT50 0 -1.208 0 -0.007 # n=0 n=2
+score RCVD_IN_IADB_RDNS 0 -0.167 0 -0.235 # n=0 n=1 n=2
+score RCVD_IN_IADB_SENDERID 0 -0.001 0 -0.001 # n=0 n=2
+score RCVD_IN_IADB_SPF 0 -0.001 0 -0.059 # n=0 n=2
+score RCVD_IN_IADB_UT_CPR_MAT 0 -0.095 0 -0.001 # n=0 n=1 n=2
+score RCVD_IN_IADB_VOUCHED 0 -2.2 0 -2.2
+score RCVD_IN_MSPIKE_H2 0.001 -1.772 0.001 -1.772
+score RCVD_IN_MSPIKE_H3 -0.01
+score RCVD_IN_MSPIKE_H3 0.001 -0.010 0.001 -0.010
+score RCVD_IN_MSPIKE_H4 -0.01
+score RCVD_IN_MSPIKE_H4 0.001 -0.010 0.001 -0.010
+score RCVD_IN_MSPIKE_H5 -1.0
+score RCVD_IN_MSPIKE_H5 0.001 -1.000 0.001 -1.000
+score RCVD_IN_MSPIKE_WL -0.01
+score RCVD_IN_MSPIKE_WL 0.001 -0.010 0.001 -0.010
+score RCVD_IN_NJABL_SPAM 4.7
+score RCVD_IN_RP_CERTIFIED 0.0 -3.0 0.0 -3.0
+score RCVD_IN_RP_SAFE 0.0 -2.0 0.0 -2.0
+score RCVD_IN_SBL_CSS 15.0
+score RCVD_IN_SORBS_DUL 5
+score RCVD_IN_XBL 4.7
+score URIBL_JP_SURBL 15.0
+score RDNS_DYNAMIC 11.7
+score RDNS_NONE 4.7
+score URIBL_BLOCKED 0 0.001 0 0.001
+score MIME_SUSPECT_NAME 1
+score MIMEOLE_DIRECT_TO_MX 1.999
+score MIMEPART_LIMIT_EXCEEDED 0.001
+score MIME_BAD_ISO_CHARSET 1
+score MIME_BASE64_BLANKS 1
+score MIME_BASE64_TEXT 0.001
+score MIME_BOUND_DD_DIGITS 0.349
+score MIME_BOUND_DIGITS_15 0.1
+score MIME_BOUND_EQ_REL 1
+score MIME_BOUND_MANY_HEX 1
+score MIME_CHARSET_FARAWAY 2.45
+score MIME_HEADER_CTYPE_ONLY 0.1
+score MIME_HTML_MOSTLY 0.1
+score MIME_HTML_ONLY 0.1
+score MIME_HTML_ONLY_MULTI 0.001
+score MIME_MALF 1
+score MIME_NO_TEXT 1
+score MIME_PHP_NO_TEXT 1
+score MIME_QP_LONG_LINE 0.001
+score MISSING_MIMEOLE 2.7
+score PP_MIME_FAKE_ASCII_TEXT 0.001
+score HK_FAKENAME_MICROSOFT    2.50
+score FSL_HELO_FAKE                         3.899 3.683 3.899 3.683
+score FAKE_HELO_MAIL_COM_DOM 1.887 0.152 1.370 2.136
+score FAKE_OUTBLAZE_RCVD 0 # n=0 n=1 n=2 n=3
+score FAKE_REPLY_C 0.688 0.001 2.553 1.486 # n=2
+score FSL_FAKE_HOTMAIL_RVCD 2.631 1.816 2.011 2.365
+score RCVD_FAKE_HELO_DOTCOM 2.799 2.389 2.605 1.189
+score FBI_SPOOF    1.000 1.000 1.000 1.000
+score SPOOFED_FREEMAIL          0.001 1.999 0.001 1.999
+score SPOOFED_FREEM_REPTO       2.499 2.500 2.499 2.500
+score SPOOFED_FREEMAIL_NO_RDNS  1.499 0.001 1.499 0.001
+score SPOOFED_FREEM_REPTO_CHN    2.203 2.815 2.203 2.815
+score SPOOFED_FREEM_REPTO_RUS    1.000 1.000 1.000 1.000
+score T_FROMNAME_SPOOFED_EMAIL 0.3
+score SPOOF_COM2COM 0.001 1.632 1.952 2.048
+score SPOOF_COM2OTH 2.999 2.999 2.877 2.723
+score SPOOF_NET2COM 0 # n=0 n=1 n=2 n=3
+score FROM_GOV_SPOOF  0.001 0.001 0.001 0.001
+score FROM_PAYPAL_SPOOF   0.001 1.599 0.001 1.599
+score FROM_MISSP_PHISH       2.649 2.275 2.649 2.275
+score GOOGLE_DOCS_PHISH                     1.000 1.000 1.000 1.000
+score GOOGLE_DOCS_PHISH_MANY                1.000 1.000 1.000 1.000
+score URI_PHISH                             1.000 1.000 1.000 1.000
+score FILL_THIS_FORM_FRAUD_PHISH 1.195 0.396 0.615 0.334
+score URIBL_DBL_PHISH        0 2.5 0 2.5
+score URIBL_DBL_ABUSE_PHISH 0 2.5 0 2.5
+score EMAIL_URI_PHISH                 2.50
+score FORGED_YAHOO_RCVD 3.7
+score FREEMAIL_FROM 2.7
+score HELO_DYNAMIC_DHCP 1.4
+score HELO_DYNAMIC_IPADDR2 3.6
+score HELO_DYNAMIC_SPLIT_IP 3.5
+score HK_RANDOM_ENVFROM 2.7
+score KHOP_DYNAMIC 1.7
+score LOTS_OF_MONEY 3.0
+score NUMERIC_HTTP_ADDR 6
+score RP_MATCHES_RCVD -1.302 -2.499 -1.302 -2.499
+
+
+# TXREP Plugin
+txrep_spf 1
+txrep_whitelist_out 10
+
+# Flags
+use_auto_whitelist 1
+use_bayes 1
+use_bayes_rules 1
+bayes_auto_learn 1
+use_razor2 1
+use_pyzor 1
